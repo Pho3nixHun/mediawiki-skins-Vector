@@ -9,11 +9,17 @@ const app = angular
       .primaryPalette('pink')
       .accentPalette('grey');
   })
+  /**
+   * Put skin data (which usually processed by php) into an angular factory.
+   */
   .factory('mwSkinData', [function () {
     let data = _mwSkinData
     delete _mwSkinData;
     return data;
   }])
+  /**
+   * Partial api.php service implementation with angular-resource.
+   */
   .service('mwApi', [
     '$resource',
     function ($resource) {
@@ -53,9 +59,14 @@ const app = angular
   .controller('indexCtrl', [
     '$scope', '$mdSidenav', 'mwSkinData', 'mwApi', '$http',
     function ($scope, $mdSidenav, mwSkinData, mwApi, $http) {
+      /**
+       * Open or close sidenav panel
+       */
       $scope.toggleSideNav = () => $mdSidenav('left').toggle();
-      console.log(mwSkinData);
       $scope.sitename = mwSkinData.sitename;
+      /**
+       * Extract header menu items from mwSkinData factory.
+       */
       $scope.headerMenus = ((d) => {
         let namespaceUrls = d.namespace_urls || {};
         let viewUrls = d.view_urls || {};
@@ -84,9 +95,15 @@ const app = angular
         }
       })(mwSkinData)
       $scope.sidebarGroups = mwSkinData.sidebar;
+      /**
+       * Global anchor click handler.
+       */
       $scope.clickHandler = function (item) {
         $scope.goToPage(item.href);
       }
+      /**
+       * Catch internal navigation events and replace them with a goToPage call
+       */
       $scope.preventHref = function () {  
         let $internalLinks = $("a[href^='/'], a[href^='./'], a[href^='../']", "#content");
         $internalLinks.each((i, v) => {  
@@ -98,6 +115,9 @@ const app = angular
         })
       }
       $scope.preventHref();
+      /**
+       * Load content instead of article instead of reloading the whole page
+       */
       $scope.goToPage = function (href) {
         $scope.search.isLoading = true;
         $http({
@@ -110,6 +130,9 @@ const app = angular
           $scope.search.isLoading = false;
         })
       }
+      /**
+       * Easter egg on empty searchText :)
+       */
       $scope.randomQuote = function () {
         let quotes = [
           '1f u c4n r34d th1s u r34lly n33d t0 g37 l41d',
@@ -154,6 +177,9 @@ const app = angular
         isDisabled: false,
         noCache: true,
         searchText: undefined,
+        /**
+         * On enter pressed, if there is an exact match (not case sensitive) got to the page, if not got to fullTextSearch
+         */
         onEnter: function (items) {
             if (items && items[0].text.toLowerCase() == $scope.search.searchText.toLowerCase()) {
               $scope.goToPage(items[0].href);
@@ -161,9 +187,15 @@ const app = angular
               $scope.goToPage("/index.php?search=" + $scope.search.searchText + "&title=Special%3ASearch&fulltext=Search")
             }
         },
+        /**
+         * Go to selected page
+         */
         selectedItemChange: function (item) {
           $scope.goToPage(item.href);
         },
+        /**
+         * Get matching pages from server while typing.
+         */
         querySearch: function (searchText) {
           return new Promise(function (resolve, reject) {
             if (searchText == false) return resolve([]);
@@ -191,6 +223,9 @@ const app = angular
               );
           })
         },
+        /**
+         * Create new article (ex.: if there is no match)
+         */
         createNew: function (searchText) {
           $scope.goToPage('/index.php?title=' + searchText + '&action=edit');
         }

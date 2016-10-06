@@ -43,3 +43,36 @@ section a{
   -moz-transition: all 300ms ease;
   transition: all 300ms ease;  
 }
+#content .firstHeading{
+  /* Needs implementation */
+}
+#content a{
+  /* Needs implementation */
+}
+.mw-headline{
+  /* Needs implementation */
+}
+.mw-editsection{
+  /* Needs implementation */
+}
+.toc{
+  /* Needs implementation */
+}
+#toctitle{
+  /* Needs implementation */
+}
+toclevel-*{
+  /* Needs implementation */
+}
+tocsection-*{
+  /* Needs implementation */
+}
+.MediaTransformError{
+  /* Needs implementation */
+} 
+a.new{
+  /* Needs implementation */
+}
+#content table{
+  /* Needs implementation */
+}
