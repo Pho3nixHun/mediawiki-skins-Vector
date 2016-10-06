@@ -40,253 +40,173 @@ class MaterialTemplate extends BaseTemplate {
 
 		$this->html( 'headelement' );
 		?>
-        
-        <div id="wrapper" class="wrapper layout-column" ng-controller="indexCtrl">
-            <md-toolbar class="md-menu-toolbar">
-                <div layout="row">
-                <md-toolbar-filler layout layout-align="center center" md-colors="accent">
-                    <md-button class="md-icon-button" ng-click="toggleSideNav()">
-                    <md-icon md-font-set="material-icons">menu</md-icon>
-                    </md-button>
-                </md-toolbar-filler>
-                <div layout="row" flex>
-                    <div>
-                    <h2 class="md-toolbar-tools"> <a href="<?php
-					echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
-					?>"> Mobile Enterprise Services Wiki </a></h2>
-                    <md-menu-bar>
-                        <md-menu>
-                        <button ng-click="$mdOpenMenu()">
-                        Page
-                        </button>
-                        <md-menu-content>
-                            <?php # $this->renderNavigation( 'PERSONAL' ); ?>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">book</md-icon>
-                                Page
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">question_answer</md-icon>
-                                Discussion
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">mode_edit</md-icon>
-                                Edit
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">history</md-icon>
-                                History
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">visibility</md-icon>
-                                Watch
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-divider></md-menu-divider>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">delete</md-icon>
-                                Delete
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">forward</md-icon>
-                                Move
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">lock</md-icon>
-                                Protect
-                            </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                        </md-menu>
-                        <md-menu>
-                        <button ng-click="$mdOpenMenu()">
-                        User
-                        </button>
-                        <md-menu-content>
-                            <?php #$this->renderNavigation( [ 'NAMESPACES', 'VARIANTS', 'VIEWS', 'ACTIONS' ] ); ?>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">account_circle</md-icon>
-                                Account
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">question_answer</md-icon>
-                                Talk
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">settings</md-icon>
-                                Preferences
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">pageview</md-icon>
-                                Watchlist
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">work</md-icon>
-                                Contributions
-                            </md-button>
-                            </md-menu-item>
-                            <md-menu-divider></md-menu-divider>
-                            <md-menu-item>
-                            <md-button ng-click="ctrl.sampleAction('share', $event)">
-                                <md-icon md-font-set="material-icons">power_settings_new</md-icon>
-                                Log out
-                            </md-button>
-                            </md-menu-item>
-                        </md-menu-content>
-                        </md-menu>
-                    </md-menu-bar>
-                    </div>
-                    <div layout-align="center center" layout="row" flex>
-                    <md-autocomplete flex=80 ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)"
-                        md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Looking for an artice?">
-                        <md-item-template>
-                        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-                        </md-item-template>
-                        <md-not-found>
-                        No states matching "{{ctrl.searchText}}" were found.
-                        <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
-                        </md-not-found>
-                    </md-autocomplete>
-                    <md-button href="http://google.com" title="Launch Google.com in new window" target="_blank" ng-disabled="true" aria-label="Google.com" class="md-icon-button launch">
-                        <md-icon md-font-set="material-icons">search</md-icon>
-                    </md-button>
-                    </div>
-                </div>
-                </div>
-            </md-toolbar>
-            <article id="content" class="mw-body" role="main" class="flex">
-                <a id="top"></a>
-                <?php
-                if ( $this->data['sitenotice'] ) {
-                    ?>
-                    <div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
-                <?php
-                }
-                ?>
-                <?php
-                if ( is_callable( [ $this, 'getIndicators' ] ) ) {
-                    echo $this->getIndicators();
-                }
+        <div id="wrapper" class="wrapper" layout="column" ng-controller="indexCtrl" ng-cloak>
+            <md-toolbar md-whiteframe="3" class="md-menu-toolbar" id="header">
+				<div layout="row">
+					<md-toolbar-filler layout layout-align="center center" md-colors="accent">
+						<md-button class="md-icon-button" ng-click="toggleSideNav()">
+							<md-icon md-font-set="material-icons">menu</md-icon>
+						</md-button>
+					</md-toolbar-filler>
+					<div layout="row" flex>
+						<div>
+							<h2 class="md-toolbar-tools"> <a ng-click="clickHandler({href:'<?php
+							echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
+							?>'})"> {{sitename}} </a></h2>
+							<md-menu-bar>
+								<md-menu ng-repeat="menu in headerMenus">
+									<button ng-click="$mdOpenMenu()">
+										{{menu.text}}
+									</button>
+									<md-menu-content>
+										<md-menu-item ng-repeat="menuitem in menu.items">
+											<md-button ng-click="clickHandler(menuitem)">
+												<md-icon md-font-set="material-icons">{{menuitem.icon}}</md-icon>
+												{{menuitem.text}}
+											</md-button>
+										</md-menu-item>	
+									</md-menu-content>
+								</md-menu>
+							</md-menu-bar>
+						</div>
+						<form ng-submit='search.onEnter(search.lastResult)' layout-align="center center" layout="row" flex>
+							<md-autocomplete flex=80 ng-disabled="search.isDisabled" md-no-cache="search.noCache" md-selected-item="search.selectedItem" md-search-text="search.searchText" md-selected-item-change="search.selectedItemChange(item)"
+							md-items="item in search.querySearch(search.searchText)" md-item-text="item.text" md-min-length="0" placeholder="Looking for an artice?" ng-focus="quote = randomQuote()">
+								<md-item-template>
+									<span md-highlight-text="search.searchText" md-highlight-flags="^i">{{item.text}}</span>
+								</md-item-template>
+								<md-not-found>
+									<span ng-show="search.searchText">
+										No articles matching "{{search.searchText}}" were found.
+										<a ng-click="search.createNew(search.searchText)">Create a new one!</a>
+										or try on 
+										<a href="https://www.google.hu/search?q={{search.searchText}}">Google</a>
+									</span>
+									<span ng-show="!search.searchText">
+										<i>{{quote}}</i>
+									</span>
+								</md-not-found>
+							</md-autocomplete>
+							<md-button class="md-icon-button" ng-click='goToPage("/index.php?search=" + search.searchText + "&title=Special%3ASearch&fulltext=Search")'>
+								<md-icon md-font-set="material-icons">search</md-icon>
+							</md-button>
+						</form>
+					</div>
+				</div>
+			</md-toolbar>
+			<div id="contentWrapper" flex>
+				<div layout="column" layout-align="center center" ng-show="search.isLoading" layout-fill>
+					<div flex></div>
+					<md-progress-circular md-mode="indeterminate" ></md-progress-circular>
+					<div flex></div>
+				</div>
+				<section ng-hide="search.isLoading" id="content" role="main" flex layout-padding >
+					<a id="top"></a>
+					<?php
+					if ( $this->data['sitenotice'] ) {
+						?>
+						<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
+					<?php
+					}
+					?>
+					<?php
+					if ( is_callable( [ $this, 'getIndicators' ] ) ) {
+						echo $this->getIndicators();
+					}
 
-                if ( $this->data['title'] != '' ) {
-                ?>
-                <h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
-                    $this->html( 'title' )
-                ?></h1>
-                <?php
-                } ?>
-                <?php $this->html( 'prebodyhtml' ) ?>
-                <div id="bodyContent" class="mw-body-content">
-                    <?php
-                    if ( $this->data['isarticle'] ) {
-                        ?>
-                        <div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-                    <?php
-                    }
-                    ?>
-                    <div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php
-                        $this->html( 'subtitle' )
-                    ?></div>
-                    <?php
-                    if ( $this->data['undelete'] ) {
-                        ?>
-                        <div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-                    <?php
-                    }
-                    ?>
-                    <?php
-                    if ( $this->data['newtalk'] ) {
-                        ?>
-                        <div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-                    <?php
-                    }
-                    ?>
-                    <div id="jump-to-nav" class="mw-jump">
-                        <?php $this->msg( 'jumpto' ) ?>
-                        <a href="#mw-head"><?php
-                            $this->msg( 'jumptonavigation' )
-                        ?></a><?php $this->msg( 'comma-separator' ) ?>
-                        <a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
-                    </div>
-                    <?php
-                    $this->html( 'bodycontent' );
+					if ( $this->data['title'] != '' ) {
+					?>
+					<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
+						$this->html( 'title' )
+					?></h1>
+					<?php
+					} ?>
+					<?php $this->html( 'prebodyhtml' ) ?>
+					<div id="bodyContent" class="mw-body-content">
+						<?php
+						if ( $this->data['isarticle'] ) {
+							?>
+							<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+						<?php
+						}
+						?>
+						<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php
+							$this->html( 'subtitle' )
+						?></div>
+						<?php
+						if ( $this->data['undelete'] ) {
+							?>
+							<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
+						<?php
+						}
+						?>
+						<?php
+						if ( $this->data['newtalk'] ) {
+							?>
+							<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
+						<?php
+						}
+						?>
+						<div id="jump-to-nav" class="mw-jump">
+							<?php $this->msg( 'jumpto' ) ?>
+							<a href="#mw-head"><?php
+								$this->msg( 'jumptonavigation' )
+							?></a><?php $this->msg( 'comma-separator' ) ?>
+							<a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
+						</div>
+						<?php
+						$this->html( 'bodycontent' );
 
-                    if ( $this->data['printfooter'] ) {
-                        ?>
-                        <div class="printfooter">
-                            <?php $this->html( 'printfooter' ); ?>
-                        </div>
-                    <?php
-                    }
+						if ( $this->data['printfooter'] ) {
+							?>
+							<div class="printfooter">
+								<?php $this->html( 'printfooter' ); ?>
+							</div>
+						<?php
+						}
 
-                    if ( $this->data['catlinks'] ) {
-                        $this->html( 'catlinks' );
-                    }
+						if ( $this->data['catlinks'] ) {
+							$this->html( 'catlinks' );
+						}
 
-                    if ( $this->data['dataAfterContent'] ) {
-                        $this->html( 'dataAfterContent' );
-                    }
-                    ?>
-                    <div class="visualClear"></div>
-                    <?php $this->html( 'debughtml' ); ?>
-                </div>
-            </article>
-            <footer id="footer">
-                
-            </footer>
-            <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-                <md-toolbar layout=row layout-align="center center" style="min-height: 96px">
-                <md-toolbar-filler layout layout-align="center center" md-colors="accent">
-                    <md-button class="md-icon-button" ng-click="toggleSideNav()">
-                    <md-icon md-font-set="material-icons">chevron_left</md-icon>
-                    </md-button>
-                </md-toolbar-filler>
-                <h2 class="md-toolbar-tools"><?php $this->msg( 'navigation-heading' ) ?></h2>
-                </md-toolbar>
-                <md-list>
-                <?php # $this->renderPortals( $this->data['sidebar'] ); ?>
-                <md-subheader class="md-no-sticky">Menu group</md-subheader>
-                <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
-                    <p>Menuitem 1</p>
-                    <md-icon md-font-set="material-icons">chevron_right</md-icon>
-                </md-list-item>
-                <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
-                    <p>Menuitem 2</p>
-                    <md-icon md-font-set="material-icons">chevron_right</md-icon>
-                </md-list-item>
-                <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
-                    <p>Menuitem 3</p>
-                    <md-icon md-font-set="material-icons">chevron_right</md-icon>
-                </md-list-item>
-                </md-list>
-            </md-sidenav>
-            </div>
-
+						if ( $this->data['dataAfterContent'] ) {
+							$this->html( 'dataAfterContent' );
+						}
+						?>
+						<div class="visualClear"></div>
+						<?php $this->html( 'debughtml' ); ?>
+					</div>
+				</section>
+			</div>
+			<footer id="footer"> </footer>
+			<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+				<md-toolbar layout=row layout-align="center center" style="min-height: 96px">
+				<md-toolbar-filler layout layout-align="center center" md-colors="accent">
+					<md-button class="md-icon-button" ng-click="toggleSideNav()">
+						<md-icon md-font-set="material-icons">chevron_left</md-icon>
+					</md-button>
+				</md-toolbar-filler>
+				<h2 class="md-toolbar-tools"><?php $this->msg( 'navigation-heading' ) ?></h2>
+				</md-toolbar>
+				<md-list>
+				<?php # $this->renderPortals( $this->data['sidebar'] ); ?>
+					<div ng-repeat="(key, value) in sidebarGroups">
+						<md-subheader class="md-no-sticky" ng-click="value.isClosed = !value.isClosed">
+						<md-icon md-font-set="material-icons">expand_more</md-icon>
+						{{key}}
+						</md-subheader>
+						<md-list-item class="secondary-button-padding" ng-repeat="item in value" ng-click="clickHandler(item) || toggleSideNav()" ng-hide="value.isClosed">
+							<p class="md-body-1 side-menu-item">{{item.text}}</p>
+						</md-list-item>
+					</div>
+				</md-list>
+			</md-sidenav>
+        </div>
+		
 		<?php $this->printTrail(); ?>
-
+		<script>
+			_mwSkinData = <?php echo json_encode($this->data) ?>;
+		</script>
 	</body>
 </html>
 <?php
@@ -403,6 +323,20 @@ class MaterialTemplate extends BaseTemplate {
 			switch ( $element ) {
 				case 'NAMESPACES':
 					?>
+					<md-menu>
+						<button ng-click="$mdOpenMenu()">
+						Page
+						</button>
+						<md-menu-content>
+							<?php foreach ( $this->data['namespace_urls'] as $link ) { ?>
+							<md-menu-item>
+								<md-button ng-click="click('<?php echo htmlspecialchars( $link['href'] ) ?>')">
+									<?php echo htmlspecialchars( $link['text'] ) ?>
+								</md-button>
+							</md-menu-item>
+							<?php } ?>
+						</md-menu-content>
+					</md-menu>
 					<div id="p-namespaces" role="navigation" class="vectorTabs<?php
 					if ( count( $this->data['namespace_urls'] ) == 0 ) {
 						echo ' emptyPortlet';

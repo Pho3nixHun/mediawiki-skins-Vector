@@ -33,12 +33,14 @@
 				"js/angular-animate.js",
 				"js/angular-aria.js",
 				"js/angular-messages.js",
+				"js/angular-resource.js",
 				"js/angular-material.js",
 				"material.js"
 			],
-			"position": "bottom",
+			"position": "top",
 			"dependencies": [
-				
+				"jquery.throttle-debounce",
+				"jquery.tabIndex"
 			]
 		},
 		"skins.material.styles": {
@@ -47,7 +49,8 @@
 			"styles": [
 				"css/angular-material.css",
 				"css/material-icons.css",
-				"css/angular-csp.css"
+				"css/angular-csp.css",
+				"material.css"
 			]
 		}
 	},

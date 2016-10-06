@@ -1,0 +1,45 @@
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
+html,
+body,
+#wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('images/t-loader.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px;
+}
+#header{
+  background-color: #fff;
+  color: #303030;
+}
+#contentWrapper{
+  background: #fff;
+  overflow: auto;
+}
+section a{
+  word-wrap: break-word;
+}
+#footer{
+  min-height: 64px;
+  background-color: #181818;
+}
+.side-menu-item{
+  text-indent: 2em;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  transition: all 300ms ease;  
+}
