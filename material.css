@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Oxygen-Regular';
+    src: url('css/Oxygen/Oxygen-Regular.ttf');
+}
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -5,6 +10,21 @@
 .ng-cloak,
 .x-ng-cloak {
   display: none !important;
+}
+
+#wrapper:not(.ng-hide),
+#content:not(.ng-hide){
+    animation: fadeIn 500ms;
+}
+#wrapper:not(.ng-hide){
+    animation-duration: 1000ms;
+}
+#content.ng-hide{
+  animation: fadeOut 500ms;
+}
+
+button, select, html, textarea, input{
+  font-family: 'Oxygen-Regular';
 }
 
 html,
@@ -21,13 +41,26 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 300px;
-}
-#header{
-  background-color: #fff;
   color: #303030;
 }
+#header button,
+md-menu-content button,
+md-toolbar-tools, .md-toolbar-tools,
+md-sidenav md-toolbar button md-icon,
+#searchButton md-icon
+{
+  color: #fff !important;
+}
+#header,
+md-menu-content{
+  background-color: #303030; /* background-A100 */
+}
 #contentWrapper{
-  background: #fff;
+  padding: 2em;
+  padding-left: 5em;
+  padding-right: 5em;
+  background: #ededed;
+  color: #070707;
   overflow: auto;
 }
 section a{
@@ -35,7 +68,8 @@ section a{
 }
 #footer{
   min-height: 64px;
-  background-color: #181818;
+  background-color: #303030; /* background-900 */
+  color: #fff; /* background-A100 */
 }
 .side-menu-item{
   text-indent: 2em;
@@ -45,21 +79,28 @@ section a{
 }
 #content .firstHeading{
   /* Needs implementation */
+  color: #303030; /* background-A100 */
 }
 #content a{
   /* Needs implementation */
+  color: #e20074; /* primary-500 */
 }
 .mw-headline{
+  color: #303030; /* background-A100 */
   /* Needs implementation */
 }
 .mw-editsection{
+  color: #ff68b5; /* primary-200 */
   /* Needs implementation */
 }
-.toc{
+#toc{
   /* Needs implementation */
+  background-color: #353535; /* background-A400 */
+  border-radius: 10px;
 }
-#toctitle{
+#toctitle h2{
   /* Needs implementation */
+  color: #fff; /* background-A100 */
 }
 toclevel-*{
   /* Needs implementation */
@@ -70,9 +111,30 @@ tocsection-*{
 .MediaTransformError{
   /* Needs implementation */
 } 
-a.new{
+#content a.new{
   /* Needs implementation */
+  color: #ff5f5f; /* red-200 */
 }
 #content table{
   /* Needs implementation */
+}
+#catlinks, .catlinks{
+  /* Needs implementation */
+  background-color: #353535; /* background-A400 */
+  border-radius: 10px;
+}
+#mw-normal-catlinks{
+  text-align: center;
+}
+#catlinks {
+
+}
+#catlinks > a{
+  margin: 0;
+  height: 100%;
+}
+#catlinks ul a {
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px;
 }

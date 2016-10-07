@@ -87,8 +87,8 @@ class MaterialTemplate extends BaseTemplate {
 									</span>
 								</md-not-found>
 							</md-autocomplete>
-							<md-button class="md-icon-button" ng-click='goToPage("/index.php?search=" + search.searchText + "&title=Special%3ASearch&fulltext=Search")'>
-								<md-icon md-font-set="material-icons">search</md-icon>
+							<md-button id="searchButton" class="md-icon-button" ng-click='goToPage("/index.php?search=" + search.searchText + "&title=Special%3ASearch&fulltext=Search")'>
+								<md-icon  md-font-set="material-icons">search</md-icon>
 							</md-button>
 						</form>
 					</div>
@@ -100,7 +100,7 @@ class MaterialTemplate extends BaseTemplate {
 					<md-progress-circular md-mode="indeterminate" ></md-progress-circular>
 					<div flex></div>
 				</div>
-				<section ng-hide="search.isLoading" id="content" role="main" flex layout-padding >
+				<section ng-hide="search.isLoading" id="content" role="main" flex >
 					<a id="top"></a>
 					<?php
 					if ( $this->data['sitenotice'] ) {

@@ -47,6 +47,7 @@
 			"targets": [ "desktop", "mobile" ],
 			"position": "top",
 			"styles": [
+				"css/animate.css",
 				"css/angular-material.css",
 				"css/material-icons.css",
 				"css/angular-csp.css",
